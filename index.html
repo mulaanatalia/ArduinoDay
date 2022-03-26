@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="”en”">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" >
+  </head>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js">
+
+  </script>
+  <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyDYedfQ9GXn-dbuW7ilDNVw3bS55wNKKlM",
+        authDomain: "arduinoday2022iluminacao.firebaseapp.com",
+        projectId: "arduinoday2022iluminacao",
+        storageBucket: "arduinoday2022iluminacao.appspot.com",
+        messagingSenderId: "887161352826",
+        appId: "1:887161352826:web:a1e485d8260fc8577781c3",
+        measurementId: "G-6KGQK780DJ"
+        };
+
+    firebase.initializeApp(firebaseConfig)
+
+    function ledOn(){
+        firebase.database().ref('SALA').set({
+            estado: 'LIGADA'
+        });
+    }
+
+    function ledOn1(){
+        firebase.database().ref('QUARTO 1').set({
+            estado: 'LIGADA'
+        });
+    }
+
+    function ledOn2(){
+        firebase.database().ref('QUARTO 1').set({
+            estado: 'LIGADA'
+        });
+    }
+
+    function ledOf(){
+        firebase.database().ref('SALA').set({
+            estado: 'DESLIGADA'
+        });
+    }
+
+    function ledOf1(){
+        firebase.database().ref('QUARTO 1').set({
+            estado: 'DESLIGADA'
+        });
+    }
+    function ledOf2(){
+        firebase.database().ref('QUARTO2').set({
+            estado: 'DESLIGADA'
+        });
+    }
+  </script>
+  <script src="app.js" defer></script>
+  <body>
+    <header>
+       <!-- <div id="logotipo">
+            <img src="foto.png" />
+        </div>-->
+        <img src="foto.png" width="120px"/>
+
+        <h1>TME Education</h1>
+        <h2>Arduino Week 2022</h2>
+        <h2>Faculdade de Ciencias e Tecnologias UJC</h2>
+
+    </header>
+
+    <h1>Controlo Remoto de Iluminação</h1>
+    <fieldset>
+        <legend>Sala</legend>
+        <div>
+            <button class="led-on" onclick="ledOn()">Ligar</button>
+            <button class="led-off" onclick="ledOf()">Desligar</button>
+        </div>
+        
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Quarto1</legend>
+        <div>
+            <button class="led-on" onclick="ledOn1()">Ligar</button>
+            <button class="led-off" onclick="ledOf1()">Desligar</button>
+        </div>
+        
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend>Quarto2</legend>
+        <div>
+            <button class="led-on" onclick="ledOn2()">Ligar</button>
+            <button class="led-off" onclick="ledOf2()">Desligar</button>
+        </div>
+        
+    </fieldset>
+    <footer> 
+        <p>
+            <strong>Direitos reservados &copy; Anatália Neves Mula - UJC</strong>
+        </p>
+    </footer>
+
+  </body>
+</html>
